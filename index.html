@@ -3,406 +3,435 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELVET TOUCH • Luxury Body Massage</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Luxury Massage Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background: #0a0a0a;
-  color: #eee;
-  font-family: 'Poppins', sans-serif;
-  overflow-x: hidden;
+/* ===== GLOBAL RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+  background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
+  color:white;
 }
 
-/* Neon Glow */
-.neon-gold {
-  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffaa00, 0 0 60px #ff8800;
-  animation: neonPulse 2.5s infinite alternate;
-}
-@keyframes neonPulse {
-  from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
-  to { text-shadow: 0 0 25px #ffd700, 0 0 50px #ffaa00, 0 0 80px #ff8800; }
-}
-
-/* Hero */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: radial-gradient(circle at center, #3a2c1a, #0a0a0a);
-  position: relative;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.8rem;
-  color: #ffd700;
-  margin-bottom: 20px;
-  letter-spacing: 4px;
-}
-.auto-type {
-  font-size: 1.55rem;
-  color: #ffddaa;
-  min-height: 60px;
-  font-weight: 300;
-  margin: 15px 0 30px;
-  text-shadow: 0 0 15px rgba(255, 200, 100, 0.6);
+/* ===== HERO SECTION (Title + Tagline + Book Now Button) ===== */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  background: radial-gradient(circle,#3a2c1a,#000);
 }
 
-/* Buttons */
-.btn {
-  padding: 16px 42px;
-  background: linear-gradient(45deg, #ffd700, #ffcc00);
-  color: #000;
-  font-weight: 700;
-  font-size: 1.15rem;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0 0 35px rgba(255,215,0,0.7);
-  transition: all 0.4s;
-}
-.btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 55px rgba(255,215,0,0.9);
+.hero h1{
+  font-size:40px;
+  color:gold;
 }
 
-/* Premium Hot Button */
-.premium-btn {
-  background: linear-gradient(45deg, #ff3366, #ff00aa, #cc00ff);
-  color: white;
-  font-size: 1.45rem;
-  padding: 22px 60px;
-  box-shadow: 0 0 50px #ff00aa, 0 0 90px #ff3366;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.4s;
-}
-.premium-btn:hover {
-  transform: scale(1.12);
-  box-shadow: 0 0 80px #ff00ff, 0 0 120px #ff3366;
+.hero p{
+  color:#ccc;
+  max-width:600px;
+  margin-top:10px;
+  font-size:15px;
 }
 
-/* Modal */
-.modal-overlay {
-  display:none; position:fixed; top:0; left:0;
-  width:100%; height:100%; background:rgba(0,0,0,0.92);
-  z-index:9999; justify-content:center; align-items:center;
-}
-.modal-overlay.active { display:flex; }
-.modal-box {
-  background:#1a1a1a; border:2px solid #ffd700;
-  border-radius:22px; padding:40px 35px; text-align:center;
-  max-width:380px; box-shadow:0 0 60px rgba(255,215,0,0.4);
-}
-
-/* Social Buttons */
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  padding: 18px 24px;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 25px rgba(255,215,0,0.3);
-  position: relative;
-  overflow: hidden;
-  margin: 12px 0;
-}
-.social-btn:hover {
-  transform: scale(1.08) translateY(-4px);
-  box-shadow: 0 0 60px rgba(255,215,0,0.8);
+/* ===== BOOK NOW BUTTON (Opens popup to choose Instagram or Telegram) ===== */
+.btn{
+  margin-top:20px;
+  padding:14px 28px;
+  background:linear-gradient(45deg,gold,#ffcc00);
+  color:black;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  border:none;
+  display:inline-block;
 }
 
-/* Instagram & Telegram */
-.insta-btn { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.tg-btn { background: linear-gradient(135deg, #229ED9, #1e88e5, #1565c0); }
-
-/* Album & Gallery */
-.album-section {
-  padding: 90px 20px;
-  background: linear-gradient(#111111, #0a0a0a);
-  text-align: center;
-}
-.album-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  color: #ffd700;
-  margin-bottom: 15px;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-.gallery-item {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-}
-.gallery-item:hover {
-  transform: scale(1.08) translateY(-12px);
-  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
-}
-.gallery-item img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  transition: transform 0.7s ease;
-}
-.gallery-item:hover img {
-  transform: scale(1.22);
+.btn:hover{
+  transform:scale(1.04);
+  transition:0.2s;
 }
 
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.97);
-  z-index: 10000;
-  align-items: center;
-  justify-content: center;
-}
-.lightbox.active { display: flex; }
-.lightbox-content {
-  position: relative;
-  max-width: 92%;
-  max-height: 92vh;
-  animation: lightboxPop 0.4s ease;
-}
-@keyframes lightboxPop {
-  from { transform: scale(0.7); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 92vh;
-  border-radius: 16px;
-  border: 4px solid #ffd700;
-  box-shadow: 0 0 70px #ffd700;
-}
-.lightbox-close {
-  position: absolute;
-  top: -22px; right: -22px;
-  background: #000;
-  color: #ffd700;
-  border: 3px solid #ffd700;
-  width: 58px; height: 58px;
-  border-radius: 50%;
-  font-size: 32px;
-  cursor: pointer;
+/* ===== MODAL POPUP (Booking platform chooser — Instagram / Telegram) ===== */
+.modal-overlay{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.85);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Cards */
-.card {
-  background: rgba(255,255,255,0.04);
-  border-radius: 18px;
-  padding: 32px;
-  margin-bottom: 45px;
-  border: 1px solid rgba(255,215,0,0.15);
+.modal-overlay.active{
+  display:flex;
 }
-h2 { 
-  color: #ffd700; 
-  font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
-  margin-bottom: 20px;
+
+.modal-box{
+  background:linear-gradient(145deg,#1e1e1e,#2a2a2a);
+  border:1px solid #444;
+  border-radius:20px;
+  padding:35px 30px;
+  text-align:center;
+  max-width:340px;
+  width:90%;
+  box-shadow:0 0 40px rgba(255,215,0,0.15);
 }
+
+.modal-box h3{
+  color:gold;
+  font-size:20px;
+  margin-bottom:8px;
+}
+
+.modal-box p{
+  color:#aaa;
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+/* ===== SOCIAL BUTTONS INSIDE POPUP ===== */
+.social-btns{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* Instagram Button (Gradient — real brand color) */
+.btn-insta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:13px 20px;
+  background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  color:white;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:0.2s;
+}
+
+.btn-insta:hover{transform:scale(1.03);}
+
+/* Telegram Button (Official Telegram Blue) */
+.btn-telegram{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:13px 20px;
+  background:#229ED9;
+  color:white;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  transition:0.2s;
+}
+
+.btn-telegram:hover{transform:scale(1.03);}
+
+/* SVG Logo size inside buttons */
+.social-logo{
+  width:26px;
+  height:26px;
+  flex-shrink:0;
+}
+
+/* Close modal button */
+.modal-close{
+  margin-top:18px;
+  background:transparent;
+  border:1px solid #555;
+  color:#aaa;
+  padding:8px 20px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.modal-close:hover{color:white;border-color:#888;}
+
+/* ===== CONTENT SECTIONS ===== */
+section{
+  padding:40px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* ===== CARD (Each info block — Services, Pricing, Gallery, etc.) ===== */
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:15px;
+  padding:25px;
+  margin-bottom:25px;
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.07);
+}
+
+/* Section Heading */
+h2{color:gold;margin-bottom:15px;}
+
+/* ===== PRICING ROWS ===== */
+.price{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #2a2a2a;
+  font-size:15px;
+}
+
+.price span:last-child{
+  color:#ffcc00;
+  font-weight:600;
+}
+
+/* ===== GALLERY GRID (Professional photos — clickable to full view) ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.gallery img:hover{transform:scale(1.05);}
+
+.gallery a{display:block;}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  color:#555;
+  font-size:13px;
+}
+
+/* ===== FLOATING SOCIAL BUTTONS (Bottom right corner — Instagram + Telegram) ===== */
+.float-btns{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:999;
+}
+
+.float-insta{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(220,39,67,0.5);
+  transition:0.2s;
+}
+
+.float-telegram{
+  width:52px;height:52px;
+  border-radius:50%;
+  background:#229ED9;
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;
+  box-shadow:0 4px 15px rgba(34,158,217,0.5);
+  transition:0.2s;
+}
+
+.float-insta:hover,.float-telegram:hover{transform:scale(1.1);}
+
+.float-icon{width:28px;height:28px;}
+
+
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== HERO SECTION (Main banner — change h1 for site title, p for tagline) ===== -->
 <div class="hero">
-  <h1 class="neon-gold">VELVET TOUCH</h1>
-  <p class="auto-type" id="autoType"></p>
+  <h1>✨ Luxury Massage & Relaxation ✨</h1>
+  <p>Premium spa experience | Private & Hygienic | Professional Service</p>
+
+  <!-- BOOK NOW BUTTON (Click karne pe popup khulega — platform choose karne ke liye) -->
   <button class="btn" onclick="document.getElementById('bookModal').classList.add('active')">
-    Book Your Sensual Session
+      
+    📅 Book Now
   </button>
 </div>
 
-<!-- Booking Modal -->
+<!-- ===== BOOKING POPUP MODAL (Instagram ya Telegram choose karo) ===== -->
 <div class="modal-overlay" id="bookModal">
   <div class="modal-box">
-    <h3 style="color:#ffd700; font-size:28px; margin-bottom:20px;">Connect With Us</h3>
-    <p style="color:#ccc; margin-bottom:25px;">Choose your favorite platform</p>
-    
-    <a href="https://www.instagram.com/akgamers24" target="_blank" class="social-btn insta-btn">
-      <span style="font-size:28px;">📸</span>
-      <span>Instagram</span>
-    </a>
-    
-    <a href="https://t.me/fullmassageservice" target="_blank" class="social-btn tg-btn">
-      <span style="font-size:28px;">✈️</span>
-      <span>Telegram</span>
-    </a>
+    <h3>📲 Book Your Session</h3>
+    <p>Choose your preferred platform to connect with us</p>
 
-    <button onclick="document.getElementById('bookModal').classList.remove('active')" 
-            style="margin-top:30px; background:transparent; border:1px solid #666; color:#aaa; padding:12px 30px; border-radius:12px; cursor:pointer;">
-      Close
-    </button>
+    <div class="social-btns">
+
+      <!-- INSTAGRAM BUTTON (Link change karo neeche href mein) -->
+      <a href="https://www.instagram.com/akgamers24?igsh=Z3l0czdzYnZlcTV0" target="_blank" class="btn-insta">
+        <!-- Instagram Real SVG Logo -->
+        <svg class="social-logo" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <!-- TELEGRAM BUTTON (Link change karo neeche href mein) -->
+      <a href="https://t.me/fullmassageservice" target="_blank" class="btn-telegram">
+        <!-- Telegram Real SVG Logo -->
+        <svg class="social-logo" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        Telegram
+      </a>
+
+    </div>
+
+    <!-- CLOSE BUTTON -->
+    <button class="modal-close" onclick="document.getElementById('bookModal').classList.remove('active')">✕ Close</button>
   </div>
 </div>
 
-<section style="padding:70px 20px; max-width:1250px; margin:auto;">
+<!-- ===== MAIN CONTENT ===== -->
+<section>
 
-  <div class="card">
-    <h2>Welcome to Our World</h2>
-    <ul style="line-height:2.6; font-size:1.15rem; color:#ddd;">
-      <li>✦ Sensual Full Body Massage</li>
-      <li>✦ Aromatic Oil Therapy</li>
-      <li>✦ Deep Relaxation Experience</li>
-      <li>✦ Private & Exclusive Spa Sessions</li>
-    </ul>
-  </div>
+<!-- ===== SERVICES CARD (List of services — edit li items to add/remove services) ===== -->
+<div class="card">
+  <h2>📍 Services</h2>
+  <ul style="padding-left:18px;line-height:2;">
+    <li>Full Body Massage</li>
+    <li>Aroma Therapy</li>
+    <li>Stress Relief</li>
+    <li>Premium Spa</li>
+  </ul>
+</div>
 
-  <div class="card">
-    <h2>Our Exclusive Rates</h2>
-    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
-      <span>1 Hour Bliss</span><span style="color:#ffd700;font-weight:600;">₹2000</span>
-    </div>
-    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
-      <span>2 Hours Ecstasy</span><span style="color:#ffd700;font-weight:600;">₹2500</span>
-    </div>
-    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
-      <span>3 Hours Paradise</span><span style="color:#ffd700;font-weight:600;">₹3500</span>
-    </div>
-    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;">
-      <span>Full Night Escape</span><span style="color:#ffd700;font-weight:600;">₹6000</span>
-    </div>
-  </div>
+<!-- ===== PRICING CARD (Edit span text to change price/duration) ===== -->
+<div class="card">
+  <h2>💰 Pricing</h2>
+  <div class="price"><span>1 Hour</span><span>₹2000</span></div>
+  <div class="price"><span>2 Hours</span><span>₹2500</span></div>
+  <div class="price"><span>3 Hours</span><span>₹3500</span></div>
+  <div class="price"><span>Full Day</span><span>₹5000</span></div>
+  <div class="price"><span>Full Night</span><span>₹6000</span></div>
+</div>
 
-  <!-- Regular Gallery -->
-  <div class="card album-section">
-    <h2 class="album-title neon-gold">Our Seductive Professionals</h2>
-    <p class="album-subtitle">Click on any beauty to feel her glow up close</p>
-    <div class="gallery" id="galleryGrid">
-      <!-- Regular photos 1.png to 10.png ke liye yahan manually daal sakte ho agar chaho -->
-    </div>
-  </div>
+<!-- ===== GALLERY CARD (Add/remove <a><img></a> blocks to change photos) ===== -->
+<div class="card">
+  <h2>🌟 Our Professionals</h2>
 
-  <!-- 🔥 NEW PREMIUM GIRLS SECTION -->
-  <div class="card" style="margin-top: 60px; text-align:center; background: linear-gradient(180deg, #1a0f08, #0a0a0a); border: 2px solid #ffd700;">
-    <h2 class="neon-gold" style="font-size: 3rem; margin-bottom: 12px;">💎 OUR PREMIUM COLLECTION</h2>
-    <p style="color:#ffddaa; font-size:1.35rem; margin-bottom:40px;">
-      Exclusive & Most Seductive Girls • Only for VIP Gentlemen
-    </p>
+<!-- Regular Gallery -->    <div class="card album-section">  
+    <h2 class="album-title neon-gold">Our Seductive Professionals</h2>  
+    <p class="album-subtitle">Click on any beauty to feel her glow up close</p>  
+    <div class="gallery" id="galleryGrid">  
+      <!-- Regular photos 1.png to 10.png ke liye yahan manually daal sakte ho agar chaho -->  
+    </div>  
+  </div>    <!-- 🔥 NEW PREMIUM GIRLS SECTION -->    <div class="card" style="margin-top: 60px; text-align:center; background: linear-gradient(180deg, #1a0f08, #0a0a0a); border: 2px solid #ffd700;">  
+    <h2 class="neon-gold" style="font-size: 2.5rem; margin-bottom: 12px;"> OUR COLLECTION </h2>  
+    <p style="color:#ffddaa; font-size:1.35rem; margin-bottom:40px;">  
+      Exclusive & Most Seductive Girls • Only for VIP Gentlemen  
+    </p>  <button onclick="showPremiumGirls()" class="premium-btn">  
+  🔓 Unlock All Premium Beauties 💎  
+</button>  
 
-    <button onclick="showPremiumGirls()" class="premium-btn">
-      🔓 Unlock All Premium Beauties 💎
-    </button>
+<!-- Hidden Premium Gallery -->  
+<div id="premiumGallery" style="display: none; margin-top: 50px;">  
+  <div class="gallery" id="premiumGrid"></div>  
+</div>
 
-    <!-- Hidden Premium Gallery -->
-    <div id="premiumGallery" style="display: none; margin-top: 50px;">
-      <div class="gallery" id="premiumGrid"></div>
-    </div>
-  </div>
+  </div>    <div class="card">  
+    <h2>Booking Information</h2>  
+    <p style="color:#ffddaa; font-size:1.2rem;">Only ₹299 advance to confirm your private sensual session.</p>  
+    <p style="color:#888; margin-top:12px;">100% privacy & hygiene assured.</p>  
+  </div>  </section>  <footer style="text-align:center; padding:35px; background:#000; color:#555; font-size:14px;">  
+  © 2026 Velvet Touch • Exclusive Body Massage Experience  
+</footer>  <!-- ===== BOOKING INFO CARD (Advance amount + details note — edit p tags) ===== -->
+<div class="card">
+  <h2>📌 Booking Info</h2>
+  <p style="color:#ccc;">Advance ₹299 required to confirm booking</p>
+  <p style="color:#888;margin-top:6px;font-size:13px;">Full details shared after booking confirmation</p>
+</div>
 
-  <div class="card">
-    <h2>Booking Information</h2>
-    <p style="color:#ffddaa; font-size:1.2rem;">Only ₹299 advance to confirm your private sensual session.</p>
-    <p style="color:#888; margin-top:12px;">100% privacy & hygiene assured.</p>
-  </div>
+<!-- ===== PAYMENT METHODS CARD (Add/remove li for payment options) ===== -->
+<div class="card">
+  <h2>💳 Payment Methods</h2>
+  <ul style="padding-left:18px;line-height:2;color:#ccc;">
+    <li>PhonePe</li>
+    <li>Google Pay</li>
+    <li>Paytm</li>
+  </ul>
+</div>
+
+<!-- ===== BOTTOM CTA (Same popup trigger as Book Now button above) ===== -->
+<div style="text-align:center;margin-top:10px;margin-bottom:30px;">
+  <button class="btn" onclick="document.getElementById('bookModal').classList.add('active')">
+    🚀 Book Your Session
+  </button>
+</div>
 
 </section>
 
-<footer style="text-align:center; padding:35px; background:#000; color:#555; font-size:14px;">
-  © 2026 Velvet Touch • Exclusive Body Massage Experience
+<!-- ===== FOOTER (Change copyright text here) ===== -->
+<footer>
+  © 2026 Premium Spa Services
 </footer>
 
-<!-- Floating Buttons -->
-<div class="float-btns" style="position:fixed; bottom:25px; right:25px; display:flex; flex-direction:column; gap:16px; z-index:999;">
-  <a href="https://www.instagram.com/akgamers24" target="_blank" style="width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; background:linear-gradient(45deg,#f09433,#dc2743,#bc1888); box-shadow:0 0 30px rgba(255,215,0,0.6);">📸</a>
-  <a href="https://t.me/fullmassageservice" target="_blank" style="width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; background:#229ED9; box-shadow:0 0 30px rgba(255,215,0,0.6);">✈️</a>
+<!-- ===== FLOATING BUTTONS (Bottom-right — Instagram + Telegram always visible) ===== -->
+<div class="float-btns">
+
+  <!-- Floating Instagram Button (Change href to update link) -->
+  <a href="https://www.instagram.com/akgamers24?igsh=Z3l0czdzYnZlcTV0" target="_blank" class="float-insta" title="Instagram">
+    <svg class="float-icon" viewBox="0 0 24 24" fill="white">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+  </a>
+
+  <!-- Floating Telegram Button (Change href to update link) -->
+  <a href="https://t.me/fullmassageservice" target="_blank" class="float-telegram" title="Telegram">
+    <svg class="float-icon" viewBox="0 0 24 24" fill="white">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+  </a>
+
+</div>
+<!-- tumhara pura HTML upar -->
+
+<!-- Lightbox div (agar nahi hai to add karo) -->
+<div id="lightbox" style="display:none;">
+  <img id="lightboxImg">
 </div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-content">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightboxImg" src="" alt="">
-  </div>
-</div>
-
+<!-- 🔥 YAHAN JS DAALNA HAI -->
 <script>
-// Auto Typing Effect
-const texts = [
-  "Welcome to our exclusive body massage service...",
-  "Where every touch feels like heaven...",
-  "Sensual relaxation by beautiful professionals",
-  "Your private escape from the world"
-];
-
-let count = 0;
-let index = 0;
-let currentText = '';
-let letter = '';
-
-function type() {
-  if (count === texts.length) count = 0;
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
-  document.getElementById("autoType").textContent = letter;
-
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 2800);
-  } else {
-    setTimeout(type, 70);
-  }
-}
-type();
-
-// Lightbox Functions
-let currentIndex = 0;
-let images = [];
-
-function openLightbox(index) {
-  images = Array.from(document.querySelectorAll('#galleryGrid img'));
-  currentIndex = index;
-  document.getElementById('lightboxImg').src = images[currentIndex].src;
-  document.getElementById('lightbox').classList.add('active');
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('active');
-}
-
-document.getElementById('lightbox').addEventListener('click', function(e) {
-  if (e.target.id === 'lightbox') closeLightbox();
-});
 
 // ====================== PREMIUM GIRLS SECTION ======================
-// Is function ka kaam: Premium button dabane par gallery dikhana aur 1.png se 30.png tak automatically load karna
-
 function showPremiumGirls() {
   const premiumDiv = document.getElementById('premiumGallery');
   const premiumGrid = document.getElementById('premiumGrid');
-  
+
   premiumDiv.style.display = 'block';
-  
+
   let html = '';
-  for(let i = 1; i <= 30; i++) {   // jitni photos upload karoge utna badha sakte ho
+  for(let i = 1; i <= 30; i++) {
     html += `
       <div class="gallery-item" onclick="openLightboxPremium(${i-1})">
-        <img src="${i}.png" alt="Premium Beauty ${i}" 
+        <img src="${i}.png" alt="Premium Beauty ${i}"
              onerror="this.style.display='none'">
       </div>
     `;
@@ -410,15 +439,26 @@ function showPremiumGirls() {
   premiumGrid.innerHTML = html;
 }
 
-// Premium photos ke liye lightbox
 let premiumImages = [];
+let currentIndex = 0;
 
 function openLightboxPremium(index) {
   premiumImages = Array.from(document.querySelectorAll('#premiumGrid img'));
   currentIndex = index;
   document.getElementById('lightboxImg').src = premiumImages[currentIndex].src;
-  document.getElementById('lightbox').classList.add('active');
+  document.getElementById('lightbox').style.display = 'flex';
 }
+
+// close lightbox
+document.getElementById('lightbox').onclick = function(){
+  this.style.display = 'none';
+};
+
+<!-- Close modal when clicking outside the box -->
+document.getElementById('bookModal').addEventListener('click', function(e){
+  if(e.target === this) this.classList.remove('active');
+});
 </script>
+
 </body>
 </html>
