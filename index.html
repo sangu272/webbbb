@@ -3,226 +3,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Massage Services</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
+<title>VELVET TOUCH • Luxury Body Massage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
-body{
-    background: linear-gradient(135deg,#0f0f0f,#1c1c1c);
-    color:white;
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: #0a0a0a;
+  color: #eee;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* HERO */
-.hero{
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-    background: radial-gradient(circle,#3a2c1a,#000);
+/* Neon Glow */
+.neon-gold {
+  text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 40px #ffaa00, 0 0 60px #ff8800;
+  animation: neonPulse 2.5s infinite alternate;
+}
+@keyframes neonPulse {
+  from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+  to { text-shadow: 0 0 25px #ffd700, 0 0 50px #ffaa00, 0 0 80px #ff8800; }
 }
 
-.hero h1{
-    font-size:40px;
-    color:gold;
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at center, #3a2c1a, #0a0a0a);
+  position: relative;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.8rem;
+  color: #ffd700;
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+}
+.auto-type {
+  font-size: 1.55rem;
+  color: #ffddaa;
+  min-height: 60px;
+  font-weight: 300;
+  margin: 15px 0 30px;
+  text-shadow: 0 0 15px rgba(255, 200, 100, 0.6);
 }
 
-.hero p{
-    color:#ccc;
-    max-width:600px;
-    margin-top:10px;
+/* Buttons */
+.btn {
+  padding: 16px 42px;
+  background: linear-gradient(45deg, #ffd700, #ffcc00);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 35px rgba(255,215,0,0.7);
+  transition: all 0.4s;
+}
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 55px rgba(255,215,0,0.9);
 }
 
-.btn{
-    margin-top:20px;
-    padding:14px 25px;
-    background:linear-gradient(45deg,gold,#ffcc00);
-    color:black;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
+/* Modal */
+.modal-overlay {
+  display:none; position:fixed; top:0; left:0;
+  width:100%; height:100%; background:rgba(0,0,0,0.92);
+  z-index:9999; justify-content:center; align-items:center;
+}
+.modal-overlay.active { display:flex; }
+.modal-box {
+  background:#1a1a1a; border:2px solid #ffd700;
+  border-radius:22px; padding:40px 35px; text-align:center;
+  max-width:380px; box-shadow:0 0 60px rgba(255,215,0,0.4);
 }
 
-/* SECTION */
-section{
-    padding:40px 20px;
-    max-width:1100px;
-    margin:auto;
+/* Wild Social Buttons */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 25px rgba(255,215,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.social-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 0 60px rgba(255,215,0,0.8);
+}
+.social-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 40%;
+  height: 300%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-25deg);
+  transition: 0.6s;
+}
+.social-btn:hover::before { left: 120%; }
+
+/* Instagram Button - Wild Neon */
+.insta-btn {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 0 30px #e1306c;
+}
+.insta-btn:hover {
+  box-shadow: 0 0 70px #e1306c;
 }
 
-/* CARD */
-.card{
-    background:rgba(255,255,255,0.05);
-    border-radius:15px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
+/* Telegram Button - Wild Glow */
+.tg-btn {
+  background: linear-gradient(135deg, #229ED9, #1e88e5, #1565c0);
+  box-shadow: 0 0 30px #229ED9;
+}
+.tg-btn:hover {
+  box-shadow: 0 0 70px #229ED9;
 }
 
-/* TITLE */
-h2{color:gold;margin-bottom:15px;}
-
-/* PRICE */
-.price{
-    display:flex;
-    justify-content:space-between;
-    padding:8px 0;
-    border-bottom:1px solid #333;
+/* Album Section */
+.album-section {
+  padding: 90px 20px;
+  background: linear-gradient(#111111, #0a0a0a);
+  text-align: center;
+}
+.album-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+.album-subtitle {
+  color: #bbb;
+  font-size: 1.25rem;
+  margin-bottom: 50px;
 }
 
-/* GALLERY */
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+.gallery-item:hover {
+  transform: scale(1.08) translateY(-12px);
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.6);
+}
+.gallery-item img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.22);
 }
 
-.gallery img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:12px;
-    transition:0.3s;
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.97);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox.active { display: flex; }
+.lightbox-content {
+  position: relative;
+  max-width: 92%;
+  max-height: 92vh;
+  animation: lightboxPop 0.4s ease;
+}
+@keyframes lightboxPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 92vh;
+  border-radius: 16px;
+  border: 4px solid #ffd700;
+  box-shadow: 0 0 70px #ffd700;
+}
+.lightbox-close {
+  position: absolute;
+  top: -22px; right: -22px;
+  background: #000;
+  color: #ffd700;
+  border: 3px solid #ffd700;
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  font-size: 32px;
+  cursor: pointer;
 }
 
-.gallery img:hover{
-    transform:scale(1.05);
+/* Other sections */
+.card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  padding: 32px;
+  margin-bottom: 35px;
+  border: 1px solid rgba(255,215,0,0.15);
+}
+h2 { 
+  color: #ffd700; 
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
 }
 
-.gallery a{
-    display:block;
+/* Floating */
+.float-btns {
+  position:fixed; bottom:25px; right:25px;
+  display:flex; flex-direction:column; gap:16px; z-index:999;
 }
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#000;
+.float-btns a {
+  width:60px; height:60px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:28px;
+  box-shadow:0 0 30px rgba(255,215,0,0.6);
+  transition:0.3s;
 }
-
-/* FLOAT BUTTON */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25D366;
-    padding:15px 18px;
-    border-radius:50%;
-    font-size:22px;
-    color:white;
-    text-decoration:none;
-}
+.float-btns a:hover { transform:scale(1.25); }
 </style>
 </head>
-
 <body>
 
 <!-- HERO -->
 <div class="hero">
-    <h1>✨ Luxury Massage & Relaxation ✨</h1>
-    <p>Premium spa experience | Private & Hygienic | Professional Service</p>
-
-    <a href="https://wa.me/917004087110?text=Hello%20I%20want%20to%20book"
-       class="btn" target="_blank">📞 Book Now</a>
+  <h1 class="neon-gold">VELVET TOUCH</h1>
+  <p class="auto-type" id="autoType"></p>
+  <button class="btn" onclick="document.getElementById('bookModal').classList.add('active')">
+    Book Your Sensual Session
+  </button>
 </div>
 
-<section>
+<!-- Booking Modal -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal-box">
+    <h3 style="color:#ffd700; font-size:28px; margin-bottom:20px;">Connect With Us</h3>
+    <p style="color:#ccc; margin-bottom:25px;">Choose your favorite platform</p>
+    
+    <a href="https://www.instagram.com/akgamers24" target="_blank" class="social-btn insta-btn">
+      <span style="font-size:28px;">📸</span>
+      <span>Instagram</span>
+    </a>
+    
+    <a href="https://t.me/fullmassageservice" target="_blank" class="social-btn tg-btn">
+      <span style="font-size:28px;">✈️</span>
+      <span>Telegram</span>
+    </a>
 
-<!-- SERVICES -->
-<div class="card">
-<h2>📍 Services</h2>
-<ul>
-<li>Full Body Massage</li>
-<li>Aroma Therapy</li>
-<li>Stress Relief</li>
-<li>Premium Spa</li>
-</ul>
+    <button onclick="document.getElementById('bookModal').classList.remove('active')" 
+            style="margin-top:30px; background:transparent; border:1px solid #666; color:#aaa; padding:12px 30px; border-radius:12px; cursor:pointer;">
+      Close
+    </button>
+  </div>
 </div>
 
-<!-- PRICING -->
-<div class="card">
-<h2>💰 Pricing</h2>
-<div class="price"><span>1 Hour</span><span>₹2000</span></div>
-<div class="price"><span>2 Hours</span><span>₹2500</span></div>
-<div class="price"><span>3 Hours</span><span>₹3500</span></div>
-<div class="price"><span>Full Day</span><span>₹5000</span></div>
-<div class="price"><span>Full Night</span><span>₹6000</span></div>
-</div>
+<section style="padding:70px 20px; max-width:1250px; margin:auto;">
 
-<!-- GALLERY -->
-<div class="card">
-<h2>🌟 Our Professionals</h2>
+  <div class="card">
+    <h2>Welcome to Our World</h2>
+    <ul style="line-height:2.6; font-size:1.15rem; color:#ddd;">
+      <li>✦ Sensual Full Body Massage</li>
+      <li>✦ Aromatic Oil Therapy</li>
+      <li>✦ Deep Relaxation Experience</li>
+      <li>✦ Private & Exclusive Spa Sessions</li>
+    </ul>
+  </div>
 
-<div class="gallery">
+  <div class="card">
+    <h2>Our Exclusive Rates</h2>
+    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
+      <span>1 Hour Bliss</span><span style="color:#ffd700;font-weight:600;">₹2000</span>
+    </div>
+    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
+      <span>2 Hours Ecstasy</span><span style="color:#ffd700;font-weight:600;">₹2500</span>
+    </div>
+    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #333;">
+      <span>3 Hours Paradise</span><span style="color:#ffd700;font-weight:600;">₹3500</span>
+    </div>
+    <div class="price" style="display:flex;justify-content:space-between;padding:14px 0;">
+      <span>Full Night Escape</span><span style="color:#ffd700;font-weight:600;">₹6000</span>
+    </div>
+  </div>
 
-<a href="https://ibb.co/ccJ6Q994" target="_blank">
-<img src="https://i.ibb.co/jvhyDYYn/9b01c1a035e9a9118c7f8ed934a7aeee.jpg">
-</a>
+  <!-- Album Section -->
+  <div class="card album-section">
+    <h2 class="album-title neon-gold">Our Seductive Professionals</h2>
+    <p class="album-subtitle">Click on any beauty to feel her glow up close</p>
 
-<a href="https://ibb.co/dvb6DTk" target="_blank">
-<img src="https://i.ibb.co/bVHLX0N/5d0b9b41f0846e75cba63b9b03226fe4.jpg">
-</a>
+    <div class="gallery" id="galleryGrid">
+      <!-- Yahan apni photos daal dena (1.png, 2.png etc.) -->
+    </div>
+  </div>
 
-<a href="https://ibb.co/5W3PdghV" target="_blank">
-<img src="https://i.ibb.co/DDFZNHfn/23f6e2a45351cfc0c03968d01d9311be.jpg">
-</a>
-
-<a href="https://ibb.co/bRQY8zfk" target="_blank">
-<img src="https://i.ibb.co/3Y4VLBJn/206c7cdb524db67b37f1ccd75d6448ea.jpg">
-</a>
-
-<a href="https://ibb.co/hJZtDS0K" target="_blank">
-<img src="https://i.ibb.co/Xr3vSqHz/63d195301e7ea88bf397ce07b96d0d65.jpg">
-</a>
-
-<a href="https://ibb.co/dw4mt5YH" target="_blank">
-<img src="https://i.ibb.co/9kHZhr5d/7bb7d2b422dc8357eba132191e970bad.jpg">
-</a>
-
-<a href="https://ibb.co/zTG5K1NV" target="_blank">
-<img src="https://i.ibb.co/TxmTzZrM/a9ec692da50625ba6a5b2828460438fd.jpg">
-</a>
-
-</div>
-</div>
-
-<!-- BOOKING -->
-<div class="card">
-<h2>📌 Booking</h2>
-<p>Advance ₹299 required</p>
-<p>Details shared after booking</p>
-</div>
-
-<!-- PAYMENT -->
-<div class="card">
-<h2>💳 Payment</h2>
-<ul>
-<li>PhonePe</li>
-<li>Google Pay</li>
-<li>Paytm</li>
-</ul>
-</div>
-
-<!-- FINAL CTA -->
-<div style="text-align:center;">
-<a href="https://wa.me/917004087110?text=Hi%20I%20am%20interested"
-class="btn" target="_blank">🚀 Book Your Session</a>
-</div>
+  <div class="card">
+    <h2>Booking Information</h2>
+    <p style="color:#ffddaa; font-size:1.2rem;">Only ₹299 advance to confirm your private sensual session.</p>
+    <p style="color:#888; margin-top:12px;">100% privacy & hygiene assured.</p>
+  </div>
 
 </section>
 
-<footer>
-© 2026 Premium Spa Services
+<footer style="text-align:center; padding:35px; background:#000; color:#555; font-size:14px;">
+  © 2026 Velvet Touch • Exclusive Body Massage Experience
 </footer>
 
-<!-- FLOAT BUTTON -->
-<a href="https://wa.me/917004087110?text=Hello"
-class="whatsapp" target="_blank">💬</a>
+<!-- Floating Buttons -->
+<div class="float-btns">
+  <a href="https://www.instagram.com/akgamers24" target="_blank" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);">📸</a>
+  <a href="https://t.me/fullmassageservice" target="_blank" style="background:#229ED9;">✈️</a>
+</div>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+</div>
+
+<script>
+// Auto Typing
+const texts = [
+  "Welcome to our exclusive body massage service...",
+  "Where every touch feels like heaven...",
+  "Sensual relaxation by beautiful professionals",
+  "Your private escape from the world"
+];
+
+let count = 0;
+let index = 0;
+let currentText = '';
+let letter = '';
+
+function type() {
+  if (count === texts.length) count = 0;
+  currentText = texts[count];
+  letter = currentText.slice(0, ++index);
+  document.getElementById("autoType").textContent = letter;
+
+  if (letter.length === currentText.length) {
+    count++;
+    index = 0;
+    setTimeout(type, 2800);
+  } else {
+    setTimeout(type, 70);
+  }
+}
+type();
+
+// Lightbox
+let currentIndex = 0;
+let images = [];
+
+function openLightbox(index) {
+  images = Array.from(document.querySelectorAll('#galleryGrid img'));
+  currentIndex = index;
+  document.getElementById('lightboxImg').src = images[currentIndex].src;
+  document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target.id === 'lightbox') closeLightbox();
+});
+</script>
 </body>
 </html>
