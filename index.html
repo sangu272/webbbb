@@ -69,6 +69,25 @@ body {
   box-shadow: 0 0 55px rgba(255,215,0,0.9);
 }
 
+/* Premium Hot Button */
+.premium-btn {
+  background: linear-gradient(45deg, #ff3366, #ff00aa, #cc00ff);
+  color: white;
+  font-size: 1.45rem;
+  padding: 22px 60px;
+  box-shadow: 0 0 50px #ff00aa, 0 0 90px #ff3366;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.premium-btn:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 80px #ff00ff, 0 0 120px #ff3366;
+}
+
 /* Modal */
 .modal-overlay {
   display:none; position:fixed; top:0; left:0;
@@ -82,7 +101,7 @@ body {
   max-width:380px; box-shadow:0 0 60px rgba(255,215,0,0.4);
 }
 
-/* Wild Social Buttons */
+/* Social Buttons */
 .social-btn {
   display: flex;
   align-items: center;
@@ -98,43 +117,18 @@ body {
   box-shadow: 0 0 25px rgba(255,215,0,0.3);
   position: relative;
   overflow: hidden;
+  margin: 12px 0;
 }
 .social-btn:hover {
   transform: scale(1.08) translateY(-4px);
   box-shadow: 0 0 60px rgba(255,215,0,0.8);
 }
-.social-btn::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 40%;
-  height: 300%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.3), transparent);
-  transform: skewX(-25deg);
-  transition: 0.6s;
-}
-.social-btn:hover::before { left: 120%; }
 
-/* Instagram Button - Wild Neon */
-.insta-btn {
-  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  box-shadow: 0 0 30px #e1306c;
-}
-.insta-btn:hover {
-  box-shadow: 0 0 70px #e1306c;
-}
+/* Instagram & Telegram */
+.insta-btn { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.tg-btn { background: linear-gradient(135deg, #229ED9, #1e88e5, #1565c0); }
 
-/* Telegram Button - Wild Glow */
-.tg-btn {
-  background: linear-gradient(135deg, #229ED9, #1e88e5, #1565c0);
-  box-shadow: 0 0 30px #229ED9;
-}
-.tg-btn:hover {
-  box-shadow: 0 0 70px #229ED9;
-}
-
-/* Album Section */
+/* Album & Gallery */
 .album-section {
   padding: 90px 20px;
   background: linear-gradient(#111111, #0a0a0a);
@@ -146,12 +140,6 @@ body {
   color: #ffd700;
   margin-bottom: 15px;
 }
-.album-subtitle {
-  color: #bbb;
-  font-size: 1.25rem;
-  margin-bottom: 50px;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -222,12 +210,12 @@ body {
   cursor: pointer;
 }
 
-/* Other sections */
+/* Cards */
 .card {
   background: rgba(255,255,255,0.04);
   border-radius: 18px;
   padding: 32px;
-  margin-bottom: 35px;
+  margin-bottom: 45px;
   border: 1px solid rgba(255,215,0,0.15);
 }
 h2 { 
@@ -236,20 +224,6 @@ h2 {
   font-size: 2.4rem;
   margin-bottom: 20px;
 }
-
-/* Floating */
-.float-btns {
-  position:fixed; bottom:25px; right:25px;
-  display:flex; flex-direction:column; gap:16px; z-index:999;
-}
-.float-btns a {
-  width:60px; height:60px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:28px;
-  box-shadow:0 0 30px rgba(255,215,0,0.6);
-  transition:0.3s;
-}
-.float-btns a:hover { transform:scale(1.25); }
 </style>
 </head>
 <body>
@@ -314,13 +288,29 @@ h2 {
     </div>
   </div>
 
-  <!-- Album Section -->
+  <!-- Regular Gallery -->
   <div class="card album-section">
     <h2 class="album-title neon-gold">Our Seductive Professionals</h2>
     <p class="album-subtitle">Click on any beauty to feel her glow up close</p>
-
     <div class="gallery" id="galleryGrid">
-      <!-- Yahan apni photos daal dena (1.png, 2.png etc.) -->
+      <!-- Regular photos 1.png to 10.png ke liye yahan manually daal sakte ho agar chaho -->
+    </div>
+  </div>
+
+  <!-- 🔥 NEW PREMIUM GIRLS SECTION -->
+  <div class="card" style="margin-top: 60px; text-align:center; background: linear-gradient(180deg, #1a0f08, #0a0a0a); border: 2px solid #ffd700;">
+    <h2 class="neon-gold" style="font-size: 3rem; margin-bottom: 12px;">💎 OUR PREMIUM COLLECTION</h2>
+    <p style="color:#ffddaa; font-size:1.35rem; margin-bottom:40px;">
+      Exclusive & Most Seductive Girls • Only for VIP Gentlemen
+    </p>
+
+    <button onclick="showPremiumGirls()" class="premium-btn">
+      🔓 Unlock All Premium Beauties 💎
+    </button>
+
+    <!-- Hidden Premium Gallery -->
+    <div id="premiumGallery" style="display: none; margin-top: 50px;">
+      <div class="gallery" id="premiumGrid"></div>
     </div>
   </div>
 
@@ -337,9 +327,9 @@ h2 {
 </footer>
 
 <!-- Floating Buttons -->
-<div class="float-btns">
-  <a href="https://www.instagram.com/akgamers24" target="_blank" style="background:linear-gradient(45deg,#f09433,#dc2743,#bc1888);">📸</a>
-  <a href="https://t.me/fullmassageservice" target="_blank" style="background:#229ED9;">✈️</a>
+<div class="float-btns" style="position:fixed; bottom:25px; right:25px; display:flex; flex-direction:column; gap:16px; z-index:999;">
+  <a href="https://www.instagram.com/akgamers24" target="_blank" style="width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; background:linear-gradient(45deg,#f09433,#dc2743,#bc1888); box-shadow:0 0 30px rgba(255,215,0,0.6);">📸</a>
+  <a href="https://t.me/fullmassageservice" target="_blank" style="width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:28px; background:#229ED9; box-shadow:0 0 30px rgba(255,215,0,0.6);">✈️</a>
 </div>
 
 <!-- Lightbox -->
@@ -351,7 +341,7 @@ h2 {
 </div>
 
 <script>
-// Auto Typing
+// Auto Typing Effect
 const texts = [
   "Welcome to our exclusive body massage service...",
   "Where every touch feels like heaven...",
@@ -380,7 +370,7 @@ function type() {
 }
 type();
 
-// Lightbox
+// Lightbox Functions
 let currentIndex = 0;
 let images = [];
 
@@ -398,6 +388,37 @@ function closeLightbox() {
 document.getElementById('lightbox').addEventListener('click', function(e) {
   if (e.target.id === 'lightbox') closeLightbox();
 });
+
+// ====================== PREMIUM GIRLS SECTION ======================
+// Is function ka kaam: Premium button dabane par gallery dikhana aur 1.png se 30.png tak automatically load karna
+
+function showPremiumGirls() {
+  const premiumDiv = document.getElementById('premiumGallery');
+  const premiumGrid = document.getElementById('premiumGrid');
+  
+  premiumDiv.style.display = 'block';
+  
+  let html = '';
+  for(let i = 1; i <= 30; i++) {   // jitni photos upload karoge utna badha sakte ho
+    html += `
+      <div class="gallery-item" onclick="openLightboxPremium(${i-1})">
+        <img src="${i}.png" alt="Premium Beauty ${i}" 
+             onerror="this.style.display='none'">
+      </div>
+    `;
+  }
+  premiumGrid.innerHTML = html;
+}
+
+// Premium photos ke liye lightbox
+let premiumImages = [];
+
+function openLightboxPremium(index) {
+  premiumImages = Array.from(document.querySelectorAll('#premiumGrid img'));
+  currentIndex = index;
+  document.getElementById('lightboxImg').src = premiumImages[currentIndex].src;
+  document.getElementById('lightbox').classList.add('active');
+}
 </script>
 </body>
 </html>
